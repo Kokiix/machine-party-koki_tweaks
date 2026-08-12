@@ -3,3 +3,17 @@ id = "koki_tweaks"
 [meta]
 name = "Koki Tweaks"
 version = "1.0.0"
+
+
+[config.randomized_spinebreaker]
+meta.description = "Randomized Spinebreaker Timer"
+
+[config.randomized_spinebreaker.info]
+default = '''The vanilla spinebreaker timer is always set at 20 seconds.
+'''
+
+[config.randomized_spinebreaker.min_time]
+default = 10
+
+[config.randomized_spinebreaker.max_time]
+default = 20
