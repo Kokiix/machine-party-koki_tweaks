@@ -8,6 +8,5 @@ func start_timer():
 	activation_duration = randf_range(%d, %d)
 ]], min_time, max_time)
 	end)
-    print(src)
     return src
 end)
