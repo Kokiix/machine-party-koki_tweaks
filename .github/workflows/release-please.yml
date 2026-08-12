@@ -38,13 +38,15 @@ jobs:
             # shopt -s nullglob
 
             MOD_NAME=$(yq '.id' gdpatch_mod.toml)
-            echo "MOD_NAME=$MOD_NAME" >> $GITHUB_ENV
+            MOD_NAME_VER="$MOD_NAME-${{ needs.release-please.outputs.tag_name }}"
 
-            mkdir "$MOD_NAME"
-            mv gdpatch_mod.toml patcher.lua "$MOD_NAME"
-            zip -r "$MOD_NAME-${{ needs.release-please.outputs.tag_name }}.zip" "$MOD_NAME"
+            mkdir "$MOD_NAME_VER"
+            mv gdpatch_mod.toml patcher.lua "$MOD_NAME_VER"
+            zip -r "$MOD_NAME_VER.zip" "$MOD_NAME_VER"
+
+            echo "MOD_NAME_VER=$MOD_NAME_VER" >> $GITHUB_ENV
           
         - uses: softprops/action-gh-release@v2
           with:
             tag_name: ${{ needs.release-please.outputs.tag_name }}
-            files: ${{env.MOD_NAME}}-${{ needs.release-please.outputs.tag_name }}.zip
+            files: ${{ env.MOD_NAME_VER }}.zip
