@@ -2,7 +2,6 @@ id = "koki_tweaks"
 
 [meta]
 name = "Koki Tweaks"
-version = "1.0.0"
 
 
 [config.randomized_spinebreaker]
